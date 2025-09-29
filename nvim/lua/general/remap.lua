@@ -35,8 +35,9 @@ keyset("n", "<C-u>", "<C-u>zz")
 -- Funtion/Plugin Keybinds
 -- ========================
 
--- Netrw Shortcut
-keyset("n", "<leader>pv", cmd.Ex)
+-- Netrw/NeoTree Shortcut
+--keyset("n", "<leader>pv", cmd.Ex, { desc = "Legacy Netrw Keybinds just in case" })
+keyset("n", "<leader>pv", cmd.Neotree)
 
 -- Lazy.nvim PM Pop Up
 keyset("n", "<leader>pm", cmd.Lazy)
