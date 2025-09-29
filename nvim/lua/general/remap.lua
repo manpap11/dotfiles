@@ -19,7 +19,7 @@ keyset("n", "<leader>k", "<C-w>k", { desc = "Move to window Up" })
 
 -- Visual Mode Mods
 keyset("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection up when highlighted" })
-keyset("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection down when highlighted"})
+keyset("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection down when highlighted" })
 
 -- Clipboard
 keyset("n", "<leader>y", "\"+y")
@@ -31,12 +31,16 @@ keyset("i", "ii", "<Esc>")
 keyset("n", "<C-d>", "<C-d>zz")
 keyset("n", "<C-u>", "<C-u>zz")
 
--- =================
--- Funtion Shortcuts
--- =================
+-- ========================
+-- Funtion/Plugin Keybinds
+-- ========================
 
 -- Netrw Shortcut
 keyset("n", "<leader>pv", cmd.Ex)
 
 -- Lazy.nvim PM Pop Up
 keyset("n", "<leader>pm", cmd.Lazy)
+
+-- Telescope.nvim Keybinds
+keyset("n", "<leader>pf", "<cmd>Telescope find_files<CR>", { desc = "Telescope find files" })
+keyset("n", "<C-p>", "<cmd>Telescope git_files<CR>", { desc = "Search for files on active Git" })

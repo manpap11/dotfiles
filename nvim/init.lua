@@ -12,6 +12,7 @@ require("config.lazy")
 
 local o = vim.o
 local cmd = vim.cmd
+local api = vim.api
 
 -- Adding mouse support
 o.mouse = "a"
@@ -43,3 +44,7 @@ o.updatetime = 50
 
 -- Fancy Colors
 cmd([[colorscheme tokyonight]])
+
+-- Transparent Background
+api.nvim_set_hl(0, "Normal", { bg = "none" })
+api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
