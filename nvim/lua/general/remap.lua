@@ -1,11 +1,7 @@
-local g = vim.g
 local cmd = vim.cmd
 local keyset = vim.keymap.set
 
--- Leader mappings
-g.mapleader = " "
-g.maplocalleader = "\\"
-
+-- Leader mappings (moved to lazy.lua for better integration)
 
 -- Window Splits Shortcuts
 keyset("n", "<leader>L", "<C-w>v", { desc = "Split window Right" })
@@ -37,7 +33,7 @@ keyset("n", "<C-u>", "<C-u>zz")
 
 -- Netrw/NeoTree Shortcut
 --keyset("n", "<leader>pv", cmd.Ex, { desc = "Legacy Netrw Keybinds just in case" })
-keyset("n", "<leader>pv", cmd.Neotree)
+keyset("n", "<leader>pv", "<cmd>Neotree toggle<CR>")
 
 -- Lazy.nvim PM Pop Up
 keyset("n", "<leader>pm", cmd.Lazy)

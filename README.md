@@ -10,3 +10,14 @@ In your ~/.profile add:
 ```
 export XDG_CONFIG_HOME="$HOME/.config"
 ```
+
+You should download your LSPs of your choice and create a symlink to the "lsp" folder you will create for easier management of the LSPs.
+```
+ln -s ~/Downloads/<your_chosen_path_anyway> $HOME/.local/share/nvim/lsp"
+```
+
+In your ~/.bashrc add:
+```
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+export PATH="$PATH:$HOME/.local/share/nvim/lsp"
+```

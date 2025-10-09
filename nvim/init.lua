@@ -7,12 +7,14 @@
 --
 -- Created by manpap
 
-require("general")
 require("config.lazy")
+require("general")
+require("config.lsp.lua")
 
 local o = vim.o
 local cmd = vim.cmd
 local api = vim.api
+local diag = vim.diagnostic
 
 -- Adding mouse support
 o.mouse = "a"
@@ -48,3 +50,10 @@ cmd([[colorscheme tokyonight]])
 -- Transparent Background
 api.nvim_set_hl(0, "Normal", { bg = "none" })
 api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+
+-- LSP
+diag.config({
+    virtual_text = true,
+    --virtual_lines = true,
+    underline = true,
+})
