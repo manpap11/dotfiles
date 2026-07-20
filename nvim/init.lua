@@ -1,59 +1,37 @@
---  _       _ _         _
--- (_)     (_) |       | |
---  _ _ __  _| |_      | |_   _  __ _
--- | | '_ \| | __|     | | | | |/ _` |
--- | | | | | | |_   _  | | |_| | (_| |
--- |_|_| |_|_|\__| (_) |_|\__,_|\__,_|
---
--- Created by manpap
+vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
+vim.g.mapleader = " "
 
-require("config.lazy")
-require("general")
-require("config.lsp.lua")
+-- bootstrap lazy and all plugins
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
-local o = vim.o
-local cmd = vim.cmd
-local api = vim.api
-local diag = vim.diagnostic
+if not vim.uv.fs_stat(lazypath) then
+  local repo = "https://github.com/folke/lazy.nvim.git"
+  vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
+end
 
--- Adding mouse support
-o.mouse = "a"
+vim.opt.rtp:prepend(lazypath)
 
--- Numbering
-o.number = true
-o.relativenumber = true
+local lazy_config = require "configs.lazy"
 
--- Indentation
-o.tabstop = 4
-o.softtabstop = 4
-o.shiftwidth = 4
-o.expandtab = true
-o.autoindent = true
-o.smartindent = true
+-- load plugins
+require("lazy").setup({
+  {
+    "NvChad/NvChad",
+    lazy = false,
+    branch = "v2.5",
+    import = "nvchad.plugins",
+  },
 
--- Text Wrap
-o.wrap = true
+  { import = "plugins" },
+}, lazy_config)
 
--- Searching
-o.hlsearch = false
-o.incsearch = true
+-- load theme
+dofile(vim.g.base46_cache .. "defaults")
+dofile(vim.g.base46_cache .. "statusline")
 
--- Scrolling
-o.scrolloff = 8
+require "options"
+require "autocmds"
 
--- Faster nvim update
-o.updatetime = 50
-
--- Fancy Colors
-cmd([[colorscheme tokyonight]])
-
--- Transparent Background
-api.nvim_set_hl(0, "Normal", { bg = "none" })
-api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-
--- LSP
-diag.config({
-    virtual_text = true,
-    --virtual_lines = true,
-    underline = true,
-})
+vim.schedule(function()
+  require "mappings"
+end)
