@@ -1,0 +1,16 @@
+# Font setup
+font_family      JetBrains Mono
+font_size        12.0
+
+# Window styling
+background_opacity 0.95
+window_padding_width 10
+
+# Disable loud terminal bell
+enable_audio_bell no
+
+
+# BEGIN_KITTY_THEME
+# Catppuccin-Mocha
+include current-theme.conf
+# END_KITTY_THEME
