@@ -14,6 +14,15 @@ M.base46 = {
 	-- },
 }
 
+-- Ensuring LSP installation
+M.mason = {
+  pkgs = {
+    "html-lsp",
+    "css-lsp",
+    "pyright",
+  },
+}
+
 -- M.nvdash = { load_on_startup = true }
 -- M.ui = {
 --       tabufline = {
