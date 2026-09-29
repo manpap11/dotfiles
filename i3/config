@@ -211,4 +211,8 @@ exec_always --no-startup-id xinput set-prop 17 "libinput Accel Profile Enabled" 
 exec_always --no-startup-id xinput set-prop 19 "libinput Accel Speed" 0.08
 exec_always --no-startup-id xinput set-prop 19 "libinput Accel Profile Enabled" 0 1 0
 
+# i3lock
 bindsym $mod+Shift+x exec --no-startup-id i3lock -c 000000
+
+# Enforcing dark theme to improve compatibility
+exec --no-startup-id gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
