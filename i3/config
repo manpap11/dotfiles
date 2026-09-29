@@ -216,3 +216,6 @@ bindsym $mod+Shift+x exec --no-startup-id i3lock -c 000000
 
 # Enforcing dark theme to improve compatibility
 exec --no-startup-id gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+
+# Changing Primary display
+exec_always --no-startup-id xrandr --output DP-0 --primary
